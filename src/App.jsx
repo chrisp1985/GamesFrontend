@@ -1,9 +1,10 @@
-import './App.css';
+import './output.css';
 import useStorageState from './hooks/useStorageState';
 import GamesList from './components/GamesList';
 import InputWithLabel from './components/InputWithLabel';
 import useGames from './hooks/useGames';
 import AboutBlock from './components/AboutBlock';
+import GamesSearch from './components/GamesSearch';
 
 const App = () => {
 
@@ -32,23 +33,24 @@ const App = () => {
   return (
     <>
 
-      <AboutBlock></AboutBlock>
-
-      <div style={{ marginTop: '5rem' }}>
-          <h1>Games Dashboard</h1>
-
+      <AboutBlock />
+      <GamesSearch />
+      <br />
+      <div>
           <InputWithLabel 
             value={searchGamesTerm} 
             onSearch={handleGamesSearch} 
             searchId={'gamesSearch'}>
-          <strong>GamesSearch:</strong>
+            <h1 className="mb-5 text-4xl font-bold leading-[1.208]! text-dark sm:text-[42px] lg:text-[40px] xl:text-5xl dark:text-white">
+                Games Search Function
+            </h1>
           </InputWithLabel>
       </div>
       <hr />
 
       {
         isError ? (<ErrorText />) :
-        isLoading ? (<p className="center-align">Loading... (artificial 5s timeout running)</p>) : 
+        isLoading ? (<p>Loading... (artificial 5s timeout running)</p>) : 
         (<GamesList list={searchedGames} onRemoveItem={removeGame}/>)
       }
 

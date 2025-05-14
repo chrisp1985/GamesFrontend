@@ -1,5 +1,8 @@
-import { initialGames } from '../data/games';
+import { fakeGames } from '../mocks/fakeGames';
 
-export const getAsyncGames = () => new Promise((resolve) =>
-  setTimeout(() => resolve({ data: { games: initialGames } }), 5000)
-);
+export const getAsyncFakeGames = () => 
+  new Promise((resolve) =>
+    setTimeout(() => {
+      resolve({ data: fakeGames });
+    }, 5000)
+  );

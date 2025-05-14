@@ -1,5 +1,6 @@
 import { useReducer, useEffect } from 'react';
 import { getAsyncGames, getAsyncGamesTimeout } from '../services/gamesService';
+import { getAsyncFakeGames } from '../services/gamesServiceMock';
 
 const gamesReducer = (state, action) => {
   switch (action.type) {
@@ -26,8 +27,9 @@ const useGames = () => {
   useEffect(() => {
     dispatch({ type: 'FETCH_START' });
 
-    getAsyncGamesTimeout() // Includes a 5 second delay currently. Remove 'Timeout' for instant.
+    getAsyncFakeGames() // Includes a 5 second delay currently. Remove 'Timeout' for instant.
       .then(result => {
+        console.log(result.data);
         dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
       })
       .catch(() => {
