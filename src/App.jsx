@@ -3,6 +3,7 @@ import useStorageState from './hooks/useStorageState';
 import GamesList from './components/GamesList';
 import InputWithLabel from './components/InputWithLabel';
 import useGames from './hooks/useGames';
+import AboutBlock from './components/AboutBlock';
 
 const App = () => {
 
@@ -18,22 +19,36 @@ const App = () => {
     game.name.toLowerCase().includes(searchGamesTerm.toLowerCase())
   );
 
+  const ErrorText = () => {
   return (
     <>
-      <h1>Games Dashboard</h1>
+      <p className="center-align inter-d">Error getting Games. Is the server running?</p>
+      <p className='inter-d'>The server, by default, is configured to run locally and try again. To run in S3, the service needs to be deployed to AppRunner and the Axios url
+        amended.
+      </p>
+    </>
+  );};
 
-      <InputWithLabel 
-        value={searchGamesTerm} 
-        onSearch={handleGamesSearch} 
-        searchId={'gamesSearch'}>
-      <strong>GamesSearch:</strong>
-      </InputWithLabel>
+  return (
+    <>
 
+      <AboutBlock></AboutBlock>
+
+      <div style={{ marginTop: '5rem' }}>
+          <h1>Games Dashboard</h1>
+
+          <InputWithLabel 
+            value={searchGamesTerm} 
+            onSearch={handleGamesSearch} 
+            searchId={'gamesSearch'}>
+          <strong>GamesSearch:</strong>
+          </InputWithLabel>
+      </div>
       <hr />
 
       {
-        isError ? (<p>Error getting Games. Is the server running?</p>) :
-        isLoading ? (<p>Loading... (artificial 5s timeout running)</p>) : 
+        isError ? (<ErrorText />) :
+        isLoading ? (<p className="center-align">Loading... (artificial 5s timeout running)</p>) : 
         (<GamesList list={searchedGames} onRemoveItem={removeGame}/>)
       }
 
