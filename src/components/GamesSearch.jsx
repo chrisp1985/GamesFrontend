@@ -10,7 +10,7 @@ const GamesSearch = () => {
                             <img
                             src="/src/assets/N64-Console-Set.png"
                             alt="hero"
-                            className="max-w-full lg:ml-auto opacity-50"
+                            className="max-w-full lg:ml-auto opacity-50 z-0"
                             />
                         </div>
                     </div>
@@ -18,10 +18,10 @@ const GamesSearch = () => {
                 <div className="hidden px-4 lg:block lg:w-1/12"></div>
                 <div className="w-full px-4 lg:w-5/12">
                     <div className="hero-content">
-                    <h1 className="mb-5 text-4xl font-bold leading-[1.208]! text-dark sm:text-[42px] lg:text-[40px] xl:text-5xl dark:text-white">
+                    <h1 className="mb-5 text-4xl font-bold leading-tight text-black sm:text-[42px] lg:text-[40px] xl:text-5xl">
                         Games Dashboard
                     </h1>
-                    <p className="mb-8 max-w-[480px] text-base text-body-color dark:text-dark-6">
+                    <p className="mb-8 max-w-[480px] text-base text-body-color">
                         With TailGrids, business and students thrive together. Business
                         can perfectly match their staffing to changing demand throughout
                         the dayed.

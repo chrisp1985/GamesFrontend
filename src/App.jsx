@@ -41,7 +41,7 @@ const App = () => {
             value={searchGamesTerm} 
             onSearch={handleGamesSearch} 
             searchId={'gamesSearch'}>
-            <h1 className="mb-5 text-4xl font-bold leading-[1.208]! text-dark sm:text-[42px] lg:text-[40px] xl:text-5xl dark:text-white">
+            <h1 className="mb-5 text-4xl font-bold leading-tight text-black sm:text-[42px] lg:text-[40px] xl:text-5xl">
                 Games Search Function
             </h1>
           </InputWithLabel>
